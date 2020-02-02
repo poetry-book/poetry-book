@@ -1,6 +1,6 @@
 //! # Poetry book
 //!
-//! `poetry_book` allows you to create a poetry book starting from plain text.
+//! `poetry-book` allows you to create a poetry book in latex, starting from plain text.
 
 mod core;
 mod lang;
