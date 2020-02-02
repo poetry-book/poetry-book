@@ -1,5 +1,5 @@
 [package]
-name = "poetry_book"
+name = "poetry-book"
 version = "0.1.0"
 authors = ["MarcoIeni"]
 edition = "2018"
