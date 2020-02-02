@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["MarcoIeni"]
 edition = "2018"
 description = "Create a poetry book in latex, starting from plain text."
+repository = "https://github.com/poetry-book/poetry-book"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
