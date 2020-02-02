@@ -1,0 +1,8 @@
+[package]
+name = "poetry_book"
+version = "0.1.0"
+authors = ["MarcoIeni"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
