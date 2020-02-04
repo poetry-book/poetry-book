@@ -6,5 +6,7 @@ edition = "2018"
 description = "Create a poetry book in latex, starting from plain text."
 repository = "https://github.com/poetry-book/poetry-book"
 license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["poetry", "book", "poem", "verse", "latex"]
 
 [dependencies]
