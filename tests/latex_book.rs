@@ -1,10 +1,7 @@
-use poetry_book::Book;
-use poetry_book::BookAttributes;
-use poetry_book::Latex;
-use poetry_book::PoemFormatting;
-use poetry_book::CenteredVerse;
-use poetry_book::Poem;
-use poetry_book::Preface;
+use poetry_book::{
+    Book, BookAttributes, BookAttributesBuilder, CenteredVerse, Latex, Poem, PoemFormatting,
+    Preface,
+};
 
 static EXPECTED_LATEX: &str = r#"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Poem
@@ -96,15 +93,13 @@ Etiam laoreet quam sed arcu. \\!
 
 \end{document}"#;
 
-    static POEM_ONE_TEXT: &str =
-"Pellentesque dapibus suscipit ligula.
+static POEM_ONE_TEXT: &str = "Pellentesque dapibus suscipit ligula.
 Donec posuere augue in quam.
 
 Etiam vel tortor sodales tellus ultricies commodo.
 Suspendisse potenti.";
 
-    static POEM_TWO_TEXT: &str =
-"Aenean in sem ac leo mollis blandit.
+static POEM_TWO_TEXT: &str = "Aenean in sem ac leo mollis blandit.
 Donec neque quam, dignissim in, mollis nec.
 
 Phasellus lacus.
@@ -112,17 +107,13 @@ Etiam laoreet quam sed arcu.";
 
 #[test]
 fn create_latex_book() {
-    let book_attributes = BookAttributes {
-        author: "book author".to_string(),
-        title: "book title".to_string(),
-        language: None,
-        toc_title: Some("toc title".to_string())
-    };
+    let book_attributes: BookAttributes = BookAttributesBuilder::new("book author", "book title")
+        .toc_title("toc title")
+        .finish();
 
     let preface = Preface {
         title: "preface title".to_string(),
         body: "preface body, preface body, preface body.".to_string(),
-
     };
 
     let poems = vec![
@@ -135,8 +126,8 @@ fn create_latex_book() {
         preface: Some(preface),
         poems,
         poem_formatting: PoemFormatting {
-            centered_verse: CenteredVerse::Average
-        }
+            centered_verse: CenteredVerse::Average,
+        },
     };
 
     let actual_latex = book.latex();
