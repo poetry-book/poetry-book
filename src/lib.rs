@@ -5,11 +5,13 @@
 mod core;
 mod lang;
 
-pub use crate::core::book::Book;
-pub use crate::core::book_attributes::{BookAttributes, builder::BookAttributesBuilder};
-pub use crate::core::preface::Preface;
 pub use crate::core::{
-    poem::Poem, poem_formatting::CenteredVerse, poem_formatting::PoemFormatting,
+    book::{builder::BookBuilder, Book},
+    book_attributes::{builder::BookAttributesBuilder, BookAttributes},
+    poem::Poem,
+    poem_formatting::CenteredVerse,
+    poem_formatting::PoemFormatting,
+    preface::Preface,
 };
 
 pub use crate::lang::latex::latex_output::Latex;

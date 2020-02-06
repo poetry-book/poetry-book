@@ -55,13 +55,13 @@ impl Latex for Book {
     fn latex(&self) -> String {
         let mut header = COPYRIGHT.to_string();
 
-        if let Some(lang) = &self.attributes.language() {
+        if let Some(lang) = &self.attributes().language() {
             header.push_str(r"\usepackage[");
             header.push_str(&lang);
             header.push_str(r"]{babel}");
         }
 
-        if let CenteredVerse::Longest = self.poem_formatting.centered_verse {
+        if let CenteredVerse::Longest = self.poem_formatting().centered_verse() {
             header.push_str(&LONGEST_VERSE_MACRO.to_string());
         }
 
@@ -73,7 +73,7 @@ impl Latex for Book {
 \renewcommand{\poemtoc}{subsection}",
         );
 
-        if let Some(toc_title) = &self.attributes.toc_title() {
+        if let Some(toc_title) = &self.attributes().toc_title() {
             header.push_str("\n\n");
             header.push_str(r"\renewcommand*\contentsname{");
             header.push_str(&toc_title);
@@ -87,10 +87,10 @@ impl Latex for Book {
 
 \title{"#,
         );
-        header.push_str(&self.attributes.title());
+        header.push_str(&self.attributes().title());
         header.push_str("}\n");
         header.push_str(r#"\author{"#);
-        header.push_str(&self.attributes.author());
+        header.push_str(&self.attributes().author());
         header.push_str(
             r#"}
 
@@ -106,7 +106,7 @@ impl Latex for Book {
 "#,
         );
 
-        if let Some(preface) = &self.preface {
+        if let Some(preface) = &self.preface() {
             header.push_str(&preface.latex());
         }
 
@@ -120,8 +120,8 @@ impl Latex for Book {
         let footer = r#"\end{document}"#;
 
         let book_body = BookBodyLatex {
-            poem_formatting: &self.poem_formatting,
-            poems: &self.poems,
+            poem_formatting: &self.poem_formatting(),
+            poems: self.poems(),
         };
 
         let poems = book_body.latex();

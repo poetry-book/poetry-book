@@ -23,7 +23,7 @@ impl<'a> BookBodyLatex<'a> {
     }
 
     fn get_poem_begin(&self, poem: &Poem) -> String {
-        match self.poem_formatting.centered_verse {
+        match self.poem_formatting.centered_verse() {
             CenteredVerse::Average => {
                 let mut poem_begin = r"\settowidth{\versewidth}".to_string();
                 let average_verse_size = poem.get_average_verse_size();
@@ -38,7 +38,7 @@ impl<'a> BookBodyLatex<'a> {
     }
 
     fn get_poem_end(&self) -> &str {
-        match self.poem_formatting.centered_verse {
+        match self.poem_formatting.centered_verse() {
             CenteredVerse::Average => "\n\n\\end{verse}\n\\newpage",
             CenteredVerse::Longest => r"\end{cverse}",
         }
@@ -108,9 +108,7 @@ Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dict
         let poem = Poem::new(POEM_TITLE, POEM_TEXT);
 
         let book_body = BookBodyLatex {
-            poem_formatting: &PoemFormatting {
-                centered_verse: CenteredVerse::Average,
-            },
+            poem_formatting: &PoemFormatting::new(CenteredVerse::Average),
             poems: &vec![poem],
         };
 

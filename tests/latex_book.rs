@@ -1,6 +1,6 @@
 use poetry_book::{
-    Book, BookAttributes, BookAttributesBuilder, CenteredVerse, Latex, Poem, PoemFormatting,
-    Preface,
+    Book, BookAttributes, BookAttributesBuilder, BookBuilder, CenteredVerse, Latex, Poem,
+    PoemFormatting, Preface,
 };
 
 static EXPECTED_LATEX: &str = r#"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,14 +121,12 @@ fn create_latex_book() {
         Poem::new("poem two", POEM_TWO_TEXT),
     ];
 
-    let book = Book {
-        attributes: book_attributes,
-        preface: Some(preface),
-        poems,
-        poem_formatting: PoemFormatting {
-            centered_verse: CenteredVerse::Average,
-        },
-    };
+    let poem_formatting = PoemFormatting::new(CenteredVerse::Average);
+
+    let book: Book = BookBuilder::new(book_attributes, poems)
+        .preface(preface)
+        .poem_formatting(poem_formatting)
+        .finish();
 
     let actual_latex = book.latex();
     assert_eq!(EXPECTED_LATEX, actual_latex);
