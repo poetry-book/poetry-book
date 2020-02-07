@@ -1,4 +1,8 @@
 # Poetry book
+
+[![Crates.io](https://img.shields.io/crates/v/poetry-book.svg)](https://crates.io/crates/poetry-book)
+[![CI](https://github.com/poetry-book/poetry-book/workflows/Rust/badge.svg)](https://github.com/poetry-book/poetry-book/actions)
+
 Rust library that allows you to create a poetry book starting from plain text.
 
 The output is a latex file which by default produces a nice pdf, but you can also edit it to suit your needs.
