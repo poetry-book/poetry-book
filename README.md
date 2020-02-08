@@ -15,17 +15,27 @@ For example you can change font size and paper format by editing:
 ```
 
 ## Features
-- Table of contents
-- Preface
-- Automatic poem alignment
-  - You can center the poems according to the average verse length or the
+
+* Table of contents
+* Preface
+* Automatic poem alignment
+  * You can center the poems according to the average verse length or the
     longest verse. See `poetry-book::CenteredVerse`
-- Localization
-  - You can see list of the languages built into your LaTeX system every
+* Localization
+  * You can see list of the languages built into your LaTeX system every
     time the compiler is started in the `.log` file
 
 ## Example
+
 See [tests/latex_book.rs](./tests/latex_book.rs).
+
+## Frontends
+
+This project is a library, i.e. it can be used by other rust projects.
+Users may create their books using one of the following frontends:
+
+* [https://crates.io/crates/poetry-book-cli](poetry-book-cli): command line interface
+* [https://crates.io/crates/poetry-book-web](poetry-book-web): web interface (TODO)
 
 ## License
 
