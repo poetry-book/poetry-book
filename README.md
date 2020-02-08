@@ -2,6 +2,7 @@
 
 [![Crates.io](https://img.shields.io/crates/v/poetry-book.svg)](https://crates.io/crates/poetry-book)
 [![CI](https://github.com/poetry-book/poetry-book/workflows/Rust/badge.svg)](https://github.com/poetry-book/poetry-book/actions)
+[![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 
 Rust library that allows you to create a poetry book starting from plain text.
 

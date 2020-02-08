@@ -2,6 +2,8 @@
 //!
 //! `poetry-book` allows you to create a poetry book in latex, starting from plain text.
 
+#![forbid(unsafe_code)]
+
 mod core;
 mod lang;
 
