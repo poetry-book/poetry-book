@@ -1,6 +1,6 @@
 [package]
 name = "poetry-book"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["MarcoIeni"]
 edition = "2018"
 description = "Create a poetry book in latex, starting from plain text."
