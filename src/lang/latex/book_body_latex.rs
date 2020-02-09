@@ -19,6 +19,7 @@ impl<'a> BookBodyLatex<'a> {
         output.push_str(&self.get_poem_begin(poem));
         output.push_str(&poem.latex());
         output.push_str(self.get_poem_end());
+        output.push_str("\n\\newpage");
         output
     }
 
@@ -39,7 +40,7 @@ impl<'a> BookBodyLatex<'a> {
 
     fn get_poem_end(&self) -> &str {
         match self.poem_formatting.centered_verse() {
-            CenteredVerse::Average => "\n\n\\end{verse}\n\\newpage",
+            CenteredVerse::Average => "\n\n\\end{verse}",
             CenteredVerse::Longest => r"\end{cverse}",
         }
     }
