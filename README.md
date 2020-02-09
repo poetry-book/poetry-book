@@ -25,9 +25,9 @@ For example you can change font size and paper format by editing:
   * You can see list of the languages built into your LaTeX system every
     time the compiler is started in the `.log` file
 
-## Example
+## Examples
 
-See [tests/latex_book.rs](./tests/latex_book.rs).
+See [examples](https://github.com/poetry-book/examples) and [tests/latex_book.rs](./tests/latex_book.rs).
 
 ## Frontends
 
