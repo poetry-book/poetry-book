@@ -17,7 +17,9 @@ impl<'a> BookBodyLatex<'a> {
     fn poem_latex(&self, poem: &Poem) -> String {
         let mut output = format!("\\poemtitle{{{}}}\n", poem.title());
         output.push_str(&self.get_poem_begin(poem));
+        output.push_str("\n\n");
         output.push_str(&poem.latex());
+        output.push_str("\n\n");
         output.push_str(self.get_poem_end());
         output.push_str("\n\\newpage");
         output
@@ -31,7 +33,7 @@ impl<'a> BookBodyLatex<'a> {
                 let average_sized_verse = "x".repeat(average_verse_size);
                 let average_sized_verse = format!("{{{}}}\n", average_sized_verse);
                 poem_begin.push_str(&average_sized_verse);
-                poem_begin.push_str("\\begin{verse}[\\versewidth]\n\n");
+                poem_begin.push_str("\\begin{verse}[\\versewidth]");
                 poem_begin
             }
             CenteredVerse::Longest => r"\begin{cverse}".to_string(),
@@ -40,7 +42,7 @@ impl<'a> BookBodyLatex<'a> {
 
     fn get_poem_end(&self) -> &str {
         match self.poem_formatting.centered_verse() {
-            CenteredVerse::Average => "\n\n\\end{verse}",
+            CenteredVerse::Average => r"\end{verse}",
             CenteredVerse::Longest => r"\end{cverse}",
         }
     }
