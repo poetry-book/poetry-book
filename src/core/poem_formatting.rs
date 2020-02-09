@@ -1,3 +1,4 @@
+/// How to format a poem.
 #[derive(PartialEq, Eq, Debug, Copy, Clone)]
 pub struct PoemFormatting {
     centered_verse: CenteredVerse,

@@ -1,5 +1,6 @@
 use std::ops::Deref;
 
+/// Use `BookAttributesBuilder` to build this.
 pub struct BookAttributes {
     author: String,
     title: String,
@@ -30,6 +31,7 @@ impl BookAttributes {
 pub mod builder {
     use super::BookAttributes;
 
+    /// Use this to construct `BookAttributes`.
     pub struct BookAttributesBuilder {
         author: String,
         title: String,

@@ -2,6 +2,7 @@ use crate::core::{
     book_attributes::BookAttributes, poem::Poem, poem_formatting::PoemFormatting, preface::Preface,
 };
 
+/// Use `BookBuilder` to build this.
 pub struct Book {
     attributes: BookAttributes,
     poems: Vec<Poem>,
@@ -34,6 +35,7 @@ pub mod builder {
         poem_formatting::PoemFormatting, preface::Preface,
     };
 
+    /// Use this to construct a `Book`.
     pub struct BookBuilder {
         attributes: BookAttributes,
         poems: Vec<Poem>,
@@ -51,11 +53,13 @@ pub mod builder {
             }
         }
 
+        /// Set preface.
         pub fn preface(mut self, preface: Preface) -> BookBuilder {
             self.preface = Some(preface);
             self
         }
 
+        /// Set poem formatting.
         pub fn poem_formatting(mut self, poem_formatting: PoemFormatting) -> BookBuilder {
             self.poem_formatting = poem_formatting;
             self
